@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Ekstrakurikuler Pramuka</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8f0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #2ecc71;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            color: #27ae60;
+            margin: 1.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .activity-list {
+            list-style-type: none;
+            margin-left: 1rem;
+        }
+        
+        .activity-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .activity-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #2ecc71;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.7rem 1.5rem;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background-color: #2980b9;
+        }
+        
+        .info-box {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-left: 4px solid #2ecc71;
+            border-radius: 5px;
+            margin: 1.5rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ekstrakurikuler Pramuka</h1>
+    </header>
+    
+    <div class="container">
+        <h1><b>Pramuka</b></h1>
+        <p><i>"Membentuk generasi muda yang mandiri, disiplin, dan mencintai alam."</i></p>
+        
+        <div class="info-box">
+            <p><u>Kegiatan Rutin: Setiap Hari Sabtu pukul 14.00-16.00 WIB</u></p>
+            <p><u>Pembina: Bapak Ahmad Sutisna, S.Pd.</u></p>
+            <p><u>Tempat: Lapangan Sekolah</u></p>
+        </div>
+        
+        <h2>Deskripsi Kegiatan</h2>
+        <p>Ekstrakurikuler Pramuka di sekolah kami bertujuan untuk mengembangkan karakter siswa melalui berbagai kegiatan yang menantang dan menyenangkan. Anggota akan belajar tentang survival, pionering, P3K, dan keterampilan kepramukaan lainnya.</p>
+        
+        <h2>Kegiatan Unggulan</h2>
+        <ul class="activity-list">
+            <li>Perkemahan Jumat-Sabtu (Persami)</li>
+            <li>Lomba Pramuka antar kelas</li>
+            <li>Pendakian dan jelajah alam</li>
+            <li>Latihan baris-berbaris</li>
+            <li>Pembuatan dan pemasangan tandu</li>
+        </ul>
+        
+        <h2>Pencapaian</h2>
+        <p>Juara 1 Lomba Tingkat Regu se-Kota tahun 2022</p>
+        <p>Juara 3 Pionering Competition se-Provinsi 2023</p>
+        
+        <a href="index.html" class="back-link">← Kembali ke Halaman Utama</a>
+    </div>
+</body>
+</html>
