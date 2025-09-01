@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Ekstrakurikuler Sekolah</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e5799 0%, #207cca 51%, #2989d8 100%);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .extracurricular-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .extracurricular-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .extracurricular-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .extracurricular-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            padding: 1rem;
+            text-align: center;
+            color: white;
+        }
+        
+        .pramuka .card-header {
+            background-color: #2ecc71;
+        }
+        
+        .basket .card-header {
+            background-color: #e74c3c;
+        }
+        
+        .paduan-suara .card-header {
+            background-color: #9b59b6;
+        }
+        
+        .english-club .card-header {
+            background-color: #3498db;
+        }
+        
+        .card-body {
+            padding: 1rem;
+        }
+        
+        .card-body p {
+            margin-bottom: 1rem;
+            color: #555;
+            font-size: 0.9rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 1.2rem;
+            margin-top: 2rem;
+            background-color: #333;
+            color: white;
+            border-radius: 10px;
+            font-size: 0.8rem;
+        }
+        
+        /* Style untuk halaman detail */
+        .detail-page {
+            display: none;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        
+        .detail-page h1 {
+            color: inherit;
+            text-align: left;
+        }
+        
+        .info-box {
+            background-color: #f9f9f9;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .activity-list {
+            list-style-type: none;
+            margin-left: 1rem;
+        }
+        
+        .activity-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .activity-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+        
+        .home-btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.5rem 1rem;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        /* Warna khusus untuk setiap halaman detail */
+        #pramuka-page .info-box {
+            border-left-color: #2ecc71;
+        }
+        
+        #basket-page .info-box {
+            border-left-color: #e74c3c;
+        }
+        
+        #paduan-suara-page .info-box {
+            border-left-color: #9b59b6;
+        }
+        
+        #english-club-page .info-box {
+            border-left-color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <!-- Halaman Utama -->
+    <div id="main-page">
+        <header>
+            <h1>PORTAL EKSTRAKURIKULER SEKOLAH</h1>
+            <p class="subtitle">Temukan kegiatan yang sesuai dengan minat dan bakat Anda</p>
+        </header>
+        
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 1rem;">Daftar Ekstrakurikuler</h2>
+            <div class="extracurricular-list">
+                <div class="extracurricular-card pramuka">
+                    <div class="card-header">
+                        <h3>Pramuka</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Ekstrakurikuler yang mengajarkan keterampilan kepemimpinan, kemandirian, dan kecintaan pada alam.</p>
+                        <button class="btn" onclick="showDetail('pramuka')">Lihat Detail</button>
+                    </div>
+                </div>
+                
+                <div class="extracurricular-card basket">
+                    <div class="card-header">
+                        <h3>Basket</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Kembangkan kemampuan bermain bola basket, kerja sama tim, dan menjaga kebugaran fisik.</p>
+                        <button class="btn" onclick="showDetail('basket')">Lihat Detail</button>
+                    </div>
+                </div>
+                
+                <div class="extracurricular-card paduan-suara">
+                    <div class="card-header">
+                        <h3>Paduan Suara</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Ekspresikan bakat menyanyi Anda dan pelajari harmoni dalam sebuah kelompok paduan suara.</p>
+                        <button class="btn" onclick="showDetail('paduan-suara')">Lihat Detail</button>
+                    </div>
+                </div>
+                
+                <div class="extracurricular-card english-club">
+                    <div class="card-header">
+                        <h3>English Club</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Tingkatkan kemampuan bahasa Inggris melalui diskusi, games, dan kegiatan menyenangkan lainnya.</p>
+                        <button class="btn" onclick="showDetail('english-club')">Lihat Detail</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2023 Portal Ekstrakurikuler Sekolah. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Halaman Detail Pramuka -->
+    <div id="pramuka-page" class="detail-page">
+        <h1><b>Pramuka</b></h1>
+        <p><i>"Membentuk generasi muda yang mandiri, disiplin, dan mencintai alam."</i></p>
+        
+        <div class="info-box">
+            <p><u>Kegiatan Rutin: Setiap Hari Sabtu pukul 14.00-16.00 WIB</u></p>
+            <p><u>Pembina: Bapak Ahmad Sutisna, S.Pd.</u></p>
+            <p><u>Tempat: Lapangan Sekolah</u></p>
+        </div>
+        
+        <h2>Deskripsi Kegiatan</h2>
+        <p>Ekstrakurikuler Pramuka di sekolah kami bertujuan untuk mengembangkan karakter siswa melalui berbagai kegiatan yang menantang dan menyenangkan. Anggota akan belajar tentang survival, pionering, P3K, dan keterampilan kepramukaan lainnya.</p>
+        
+        <h2>Kegiatan Unggulan</h2>
+        <ul class="activity-list">
+            <li>Perkemahan Jumat-Sabtu (Persami)</li>
+            <li>Lomba Pramuka antar kelas</li>
+            <li>Pendakian dan jelajah alam</li>
+            <li>Latihan baris-berbaris</li>
+            <li>Pembuatan dan pemasangan tandu</li>
+        </ul>
+        
+        <h2>Pencapaian</h2>
+        <p>Juara 1 Lomba Tingkat Regu se-Kota tahun 2022</p>
+        <p>Juara 3 Pionering Competition se-Provinsi 2023</p>
+        
+        <button class="btn" onclick="showMain()">← Kembali ke Halaman Utama</button>
+    </div>
+
+    <!-- Halaman Detail Basket -->
+    <div id="basket-page" class="detail-page">
+        <h1><b>Basket</b></h1>
+        <p><i>"Membangun tim yang solid, disiplin, dan berprestasi melalui olahraga basket."</i></p>
+        
+        <div class="info-box">
+            <p><u>Kegiatan Rutin: Setiap Hari Rabu pukul 15.30-17.30 WIB</u></p>
+            <p><u>Pelatih: Bapak Rudi Hartono, S.Pd.</u></p>
+            <p><u>Tempat: Lapangan Basket Sekolah</u></p>
+        </div>
+        
+        <h2>Deskripsi Kegiatan</h2>
+        <p>Ekstrakurikuler Basket merupakan wadah bagi siswa yang ingin mengembangkan bakat dan minat dalam olahraga basket. Kami melatih teknik dasar, strategi permainan, kerja sama tim, serta menjaga kebugaran fisik.</p>
+        
+        <h2>Kegiatan Unggulan</h2>
+        <ul class="activity-list">
+            <li>Latihan dribbling dan shooting</li>
+            <li>Pemahaman strategi permainan</li>
+            <li>Latihan fisik dan endurance</li>
+            <li>Permainan latihan antar anggota</li>
+            <li>Partisipasi dalam turnamen basket</li>
+        </ul>
+        
+        <h2>Pencapaian</h2>
+        <p>Juara 2 Turnamen Basket Pelajar se-Kota 2023</p>
+        <p>MVP Turnamen Basket: Andi Wijaya (Kelas XI IPA 2)</p>
+        
+        <button class="btn" onclick="showMain()">← Kembali ke Halaman Utama</button>
+    </div>
+
+    <!-- Halaman Detail Paduan Suara -->
+    <div id="paduan-suara-page" class="detail-page">
+        <h1><b>Paduan Suara</b></h1>
+        <p><i>"Menyatukan suara, menyentuh hati, melalui harmoni musik yang indah."</i></p>
+        
+        <div class="info-box">
+            <p><u>Kegiatan Rutin: Setiap Hari Kamis pukul 15.00-17.00 WIB</u></p>
+            <p><u>Pembina: Ibu Sinta Dewi, S.Sn.</u></p>
+            <p><u>Tempat: Aula Serbaguna Sekolah</u></p>
+        </div>
+        
+        <h2>Deskripsi Kegiatan</h2>
+        <p>Ekstrakurikuler Paduan Suara memberikan kesempatan bagi siswa untuk mengembangkan bakat menyanyi dan apresiasi terhadap musik. Kami berfokus pada teknik vokal, harmonisasi, dan penampilan kelompok.</p>
+        
+        <h2>Kegiatan Unggulan</h2>
+        <ul class="activity-list">
+            <li>Latihan teknik pernapasan dan vokal</li>
+            <li>Pembelajaran membaca notasi musik</li>
+            <li>Harmonisasi suara sopran, alto, tenor, bass</li>
+            <li>Latihan lagu-lagu nasional dan internasional</li>
+            <li>Penampilan dalam acara sekolah dan kompetisi</li>
+        </ul>
+        
+        <h2>Pencapaian</h2>
+        <p>Juara 1 Festival Paduan Suara Pelajar se-Kota 2022</p>
+        <p>Penampilan spesial dalam Upacara Hari Pendidikan Nasional 2023</p>
+        
+        <button class="btn" onclick="showMain()">← Kembali ke Halaman Utama</button>
+    </div>
+
+    <!-- Halaman Detail English Club -->
+    <div id="english-club-page" class="detail-page">
+        <h1><b>English Club</b></h1>
+        <p><i>"Improving English skills through fun and interactive activities."</i></p>
+        
+        <div class="info-box">
+            <p><u>Kegiatan Rutin: Setiap Hari Selasa pukul 15.00-16.30 WIB</u></p>
+            <p><u>Pembina: Ibu Diana Putri, S.Pd.</u></p>
+            <p><u>Tempat: Ruang Multimedia 2</u></p>
+        </div>
+        
+        <h2>Deskripsi Kegiatan</h2>
+        <p>English Club adalah ekstrakurikuler yang dirancang untuk meningkatkan kemampuan bahasa Inggris siswa melalui metode yang menyenangkan dan interaktif. Kami fokus pada percakapan, diskusi, games, dan kegiatan kreatif lainnya.</p>
+        
+        <h2>Kegiatan Unggulan</h2>
+        <ul class="activity-list">
+            <li>English conversation practice</li>
+            <li>Debate and discussion sessions</li>
+            <li>Watching and analyzing English movies</li>
+            <li>Vocabulary games and quizzes</li>
+            <li>Preparation for English competitions</li>
+        </ul>
+        
+        <h2>Pencapaian</h2>
+        <p>Juara 2 English Debate Competition se-Kota 2023</p>
+        <p>Partisipasi dalam English Story Telling Competition tingkat provinsi</p>
+        
+        <button class="btn" onclick="showMain()">← Kembali ke Halaman Utama</button>
+    </div>
+
+    <script>
+        // Fungsi untuk menampilkan halaman detail
+        function showDetail(page) {
+            // Sembunyikan semua halaman
+            document.getElementById('main-page').style.display = 'none';
+            document.getElementById('pramuka-page').style.display = 'none';
+            document.getElementById('basket-page').style.display = 'none';
+            document.getElementById('paduan-suara-page').style.display = 'none';
+            document.getElementById('english-club-page').style.display = 'none';
+            
+            // Tampilkan halaman yang dipilih
+            document.getElementById(page + '-page').style.display = 'block';
+            
+            // Scroll ke atas
+            window.scrollTo(0, 0);
+        }
+        
+        // Fungsi untuk kembali ke halaman utama
+        function showMain() {
+            // Sembunyikan semua halaman detail
+            document.getElementById('pramuka-page').style.display = 'none';
+            document.getElementById('basket-page').style.display = 'none';
+            document.getElementById('paduan-suara-page').style.display = 'none';
+            document.getElementById('english-club-page').style.display = 'none';
+            
+            // Tampilkan halaman utama
+            document.getElementById('main-page').style.display = 'block';
+            
+            // Scroll ke atas
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+                      </html>
